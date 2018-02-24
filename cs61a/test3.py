@@ -1,12 +1,30 @@
-def a_plus_abs_b(a, b):
-    """Return a+abs(b), but without calling abs.
+def hailstone(n):
+    """Print the hailstone sequence starting at n and return its
+    length.
 
-    >>> a_plus_abs_b(2, 3)
+    >>> a = hailstone(10)
+    10
     5
-    >>> a_plus_abs_b(2, -3)
-    5
+    16
+    8
+    4
+    2
+    1
+    >>> a
+    7
     """
-    if b < 0:
-        return a - b
-    else:
-        return a + b
+    length = 1
+    while n != 1:
+        print(n)
+        length += 1
+        if n % 2 == 0:
+            n = n // 2
+        elif n % 2 == 1:
+            n = n * 3 + 1
+        else:
+            return "what the heck"
+    print(1)
+    return length
+
+a = hailstone(27)
+print("total sequences is: " + str(a))

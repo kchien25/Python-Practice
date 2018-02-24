@@ -82,19 +82,17 @@ def with_if_statement():
     else:
         return f()
 
-
-
 def with_if_function():
     return if_function(c(), t(), f())
 
 def c():
-    "*** YOUR CODE HERE ***"
+    return print("1")
 
 def t():
-    "*** YOUR CODE HERE ***"
+    return print(True)
 
 def f():
-    "*** YOUR CODE HERE ***"
+    return False
 
 
 
@@ -113,4 +111,15 @@ def hailstone(n):
     >>> a
     7
     """
-    "*** YOUR CODE HERE ***"
+    length = 1
+    while n != 1:
+        print(n)
+        length += 1
+        if n % 2 == 0:
+            n = n // 2
+        elif n % 2 == 1:
+            n = n * 3 + 1
+        else:
+            return "what the heck"
+    print(1)
+    return length
