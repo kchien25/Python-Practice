@@ -1,30 +1,13 @@
-def hailstone(n):
-    """Print the hailstone sequence starting at n and return its
-    length.
+def keep_ints(n):
+    def cond(is_even):
+        x = 1
+        while x < n:
+            if is_even(x):
+                print(x)
+            x += 1
+    return cond
 
-    >>> a = hailstone(10)
-    10
-    5
-    16
-    8
-    4
-    2
-    1
-    >>> a
-    7
-    """
-    length = 1
-    while n != 1:
-        print(n)
-        length += 1
-        if n % 2 == 0:
-            n = n // 2
-        elif n % 2 == 1:
-            n = n * 3 + 1
-        else:
-            return "what the heck"
-    print(1)
-    return length
+def is_even(x):
+    return x % 2 == 0
 
-a = hailstone(27)
-print("total sequences is: " + str(a))
+keep_ints(5)(is_even)
