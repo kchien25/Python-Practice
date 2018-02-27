@@ -1,9 +1,7 @@
 from dice import six_sided, four_sided, make_test_dice
 from ucb import main, trace, interact
 
-test = make_test_dice(4, 6, 1)
-
-def roll_dice(num_rolls, dice=test):
+def roll_dice(num_rolls, dice=make_test_dice(4, 1, 2, 6)):
     """Simulate rolling the DICE exactly NUM_ROLLS > 0 times. Return the sum of
     the outcomes unless any of the outcomes is 1. In that case, return 1.
 
@@ -16,12 +14,15 @@ def roll_dice(num_rolls, dice=test):
     # BEGIN PROBLEM 1
     score = 0
     while num_rolls > 0:
-        if test() == 1:
+        roll = dice()
+        if roll == 1:
+            roll = dice()
             return 1
         else:
-            score += test()
+            score += roll
             num_rolls -= 1
     return score
     # END PROBLEM 1
 
-print(roll_dice(2))
+print(roll_dice(3))
+print(roll_dice(1))

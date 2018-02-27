@@ -23,10 +23,14 @@ def roll_dice(num_rolls, dice=six_sided):
     # BEGIN PROBLEM 1
     score = 0
     while num_rolls > 0:
-        if six_sided() == 1:
+        roll = dice()
+        if roll == 1:
+            if num_rolls > 1:
+                roll = dice()
+                num_rolls -= 1
             return 1
         else:
-            score += six_sided()
+            score += roll
             num_rolls -= 1
     return score
     # END PROBLEM 1
